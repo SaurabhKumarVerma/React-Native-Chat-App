@@ -1,6 +1,6 @@
 import {Dimensions} from 'react-native';
-import * as color from '../colors';
-import {smallDeviceHeight} from '../constants';
+import * as color from '../../Color/index';
+import {smallDeviceHeight} from '../../Constant';
 
 export const {height: deviceHeight, width: deviceWidth} =
   Dimensions.get('window');

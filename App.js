@@ -1,16 +1,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {Text, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import NavigationContain from './src/Navigation';
+import {StoreProvider} from './src/Context/Store';
+import {Loader} from './src/Component';
 
-const App = () => {
-  return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello World</Text>
-      </View>
-    </SafeAreaView>
-  );
-};
+const App = () => (
+  <StoreProvider>
+    <NavigationContain />
+    <Loader />
+  </StoreProvider>
+);
 
 export default App;
