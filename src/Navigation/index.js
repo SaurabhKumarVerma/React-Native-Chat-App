@@ -1,7 +1,14 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Login, SignUp, DashBoard, Splash} from '../Container';
+import {
+  Login,
+  SignUp,
+  DashBoard,
+  Splash,
+  ShowFullImg,
+  Chat,
+} from '../Container';
 import {color} from '../utility';
 
 const Stack = createStackNavigator();
@@ -40,6 +47,16 @@ function NavigationContain() {
           name="DashBoard"
           component={DashBoard}
           options={{headerLeft: null}}
+        />
+        <Stack.Screen
+          name="ShowFullImg"
+          component={ShowFullImg}
+          options={{headerBackTitle: null}}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={Chat}
+          options={{headerBackTitle: null}}
         />
       </Stack.Navigator>
     </NavigationContainer>

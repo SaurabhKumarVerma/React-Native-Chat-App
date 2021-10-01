@@ -16,3 +16,17 @@ export const AddUser = async (name, email, uid, profileImg) => {
     return error;
   }
 };
+
+export const Updateuser = async (uuid, imgSource) => {
+  console.log('uuid', uuid, 'imgSource', imgSource);
+  try {
+    return await firebase
+      .database()
+      .ref('users/' + uuid)
+      .update({
+        profileImg: imgSource,
+      });
+  } catch (error) {
+    return error;
+  }
+};

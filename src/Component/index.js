@@ -4,5 +4,14 @@ import InputField from './Input/input';
 import Loader from './Loader/index';
 import Profile from './profile/index';
 import ShowUser from './ShowUsers/index';
+import ChatBox from './ChatBox';
 
-export {RoundCornerButton, Logo, InputField, Loader, Profile, ShowUser};
+export {
+  RoundCornerButton,
+  Logo,
+  InputField,
+  Loader,
+  Profile,
+  ShowUser,
+  ChatBox,
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View, Text} from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './style';
 import {globalStyle, color} from '../../utility';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -23,8 +23,8 @@ export default ({img, name, onImgTap, onEditImgTap}) => (
         )}
       </TouchableOpacity>
       <View style={[globalStyle.sectionCentered, styles.editImgContainer]}>
-        <FontAwesome5
-          name="user-edit"
+        <Icon
+          name="add-a-photo"
           size={20}
           onPress={onEditImgTap}
           color={color.WHITE}
