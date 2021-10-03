@@ -30,6 +30,7 @@ import Firebase from '../../Firebase';
 import {deviceHeight} from '../../utility/StyleHelper/AppStyle';
 import {smallDeviceHeight} from '../../utility/Constant';
 import GlobalStyle from '../../utility/StyleHelper/GlobalStyle';
+// import { requestUserPermission } from '../../Component/PushNotification';
 
 const Chat = ({route, navigation}) => {
   const {params} = route;
@@ -38,7 +39,6 @@ const Chat = ({route, navigation}) => {
   const [messages, setmessages] = useState([]);
 
   const globalState = useContext(Store);
-
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -69,12 +69,55 @@ const Chat = ({route, navigation}) => {
     }
   }, []);
 
+  // useEffect(() => {
+  //   PushNotification.configure({
+  //     onRegister: function (token) {
+  //       console.log('TOKEN:', token);
+  //     },
+  //     onNotification: function (notification) {
+  //       console.log('NOTIFICATION:', notification);
+  //       // notification.finish(PushNotificationIOS.FetchResult.NoData);
+  //     },
+
+  //     onAction: function (notification) {
+  //       console.log('ACTION:', notification.action);
+  //       console.log('NOTIFICATION:', notification);
+  //     },
+  //     onRegistrationError: function (err) {
+  //       console.error(err.message, err);
+  //     },
+  //     permissions: {
+  //       alert: true,
+  //       badge: true,
+  //       sound: true,
+  //     },
+  //     popInitialNotification: true,
+  //     requestPermissions: true,
+  //   });
+  // }, []);
+
+  // const notification = () => {
+  //   PushNotification.localNotification({
+  //     title: 'My Notification Title', // (optional)
+  //     message: 'My Notification Message', // (required)
+  //   });
+  // };
+
+  // const showSuccessNotifications = () => {
+  //   PushNotification.localNotification({
+  //     channelId: 'default',
+  //     message: 'New msg recivie',
+  //   });
+  // };
+
   const handleSend = () => {
     setmsgValue('');
 
     if (msgValue) {
       senderMsg(msgValue, currentUser, geustUserId, '')
-        .then(() => {})
+        .then(() => {
+          // showSuccessNotifications();
+        })
         .catch(err => alert(err));
 
       //guest User
@@ -121,7 +164,6 @@ const Chat = ({route, navigation}) => {
     setmsgValue(text);
   };
   const renderItem = useCallback(item => {
-    console.log('item ----render', item.item.msg);
     return (
       <ChatBox
         userId={item.item.sendBy}

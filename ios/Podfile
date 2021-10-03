@@ -12,6 +12,12 @@ target 'ChatAppRN' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
+  pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
+
   target 'ChatAppRNTests' do
     inherit! :complete
     # Pods for testing
