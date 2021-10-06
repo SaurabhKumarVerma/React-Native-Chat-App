@@ -57,7 +57,22 @@ import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/messaging';
 import {Platform} from 'react-native';
 
+const createNotificationChannel = () => {
+  PushNotification.createChannel(
+    {
+      channelId: 'default',
+      channelName: 'Chat',
+      channelDescription: 'A Chat notification channel',
+      soundName: 'default',
+      importance: Importance.HIGH,
+      vibrate: true,
+    },
+    isCreated => console.log('PushNotification channel created: ', isCreated),
+  );
+};
+
 export const pushN = async () => {
+  createNotificationChannel();
   PushNotification.configure({
     onRegister: function (token) {
       console.log(token);
